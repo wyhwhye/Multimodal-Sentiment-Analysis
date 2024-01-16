@@ -1,0 +1,9 @@
+**/.idea/
+__pycache__/
+t5-small/
+Bert/
+data/
+*.txt
+*.gitattributes
+*.coverage
+*.log
