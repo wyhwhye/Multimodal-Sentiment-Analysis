@@ -30,7 +30,7 @@ def predict(model, test_dataloader):
 if __name__ == '__main__':
     a, b, test_dataloader = read_data(32)
     file_path = 'test_without_label.txt'
-    model = torch.load('./models/Attention.pth')
+    model = torch.load('./models/myModel.pth')
 
     replacements = predict(model, test_dataloader)
 
