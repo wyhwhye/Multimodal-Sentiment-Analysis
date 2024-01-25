@@ -2,7 +2,7 @@
 __pycache__/
 t5-small/
 Bert/
-bert-base-uncased/
+bert-based-uncased/
 resnet-50/
 *.gitattributes
 *.coverage
