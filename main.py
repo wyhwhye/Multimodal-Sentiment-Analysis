@@ -47,4 +47,4 @@ train(
     text_only=args.text_only,
     image_only=args.image_only
 )
-torch.save(model, f'./models/{args.model}.pth')
+torch.save(model, './models/myModel.pth')
