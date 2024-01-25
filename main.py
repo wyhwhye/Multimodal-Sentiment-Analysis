@@ -13,8 +13,7 @@ parser.add_argument("--epochs", type=int, default=2, help="Number of training ep
 parser.add_argument("--learning_rate", type=float, default=1e-5, help="Learning rate for the optimizer")
 parser.add_argument("--weight_decay", type=float, default=0.01, help="Weight decay for the optimizer")
 parser.add_argument('--text_only', type=bool, default=False, help='only use text?')
-parser.add_argument('--image_only', type=bool, default=False, help='only use image?')
-parser.add_argument('--do_predict', type=bool, default=False, help='do predict?')
+parser.add_argument('--image_only', type=bool, default=False, help='only use image?'
 
 args = parser.parse_args()
 
