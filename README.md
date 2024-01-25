@@ -13,7 +13,7 @@
 - pillow==9.5.0
 
 
-执行以下代码安装依赖：
+执行以下代码安装：
 
 ```shell
 pip install -r requirments.txt
@@ -24,35 +24,19 @@ pip install -r requirments.txt
 由于不能上传超过25M的文件，所以这里的bert，bert_tokenizer, resnet-50， bertSelf.pt没法上传，但是融合模型会用到这些文件，所以所有的文件会通过邮件发送，发送的格式与此处的文件结构相同。虽然bert和resnet预训练模型可以通过代码直接下载，但我在实验中发现经常会因为网络原因下载失败，并且下载一个bert模型需要一定的时间，所以为了保险起见，选择通过邮件发送模型。最后要麻烦助教在检查的时候将这些数据上传到自己的设备或服务器中～
 
 ```python
-|-- bert # 这个文件夹包含了BERT基础模型的的预训练参数
-    |-- .DS_Store # 无需在意
-    |-- bert_config.json  # BERT模型的参数
-    |-- bert_model.ckpt.data-00000-of-00001  # all run shs
-    |-- bert_model.ckpt.index
-    |-- bert_model.ckpt.meta #
-    |-- config.json # includes all model implementations
-    |-- pytorch_model.bin # pytorch bert的模型
-|-- bert_tokenizer # BERT模型的分词器相关代码
-    |-- .DS_Store # 无需在意
-    |-- special_tokens_map.json
-    |-- tokenizer.json
-    |-- tokenizer_config.json
-    |-- vocab.txt 
-|-- resnet-50 # 这个文件夹包含了ResNet-50基础模型的的预训练参数
-|-- 实验五数据 # 本次实验用到的数据
-    ｜-- data # 文本与图像
-|-- .gitattributes # git lfs 用于上传大文件的一些代码
-|-- README.md # 本项目的介绍
-|-- bertSelf.pt #训练好的多模态模型，用于预测
-|-- data_util.py # 数据处理的文件，里面包含了构建dataset类与dataloader的代码
-|-- df_for_test.csv # 整理好的用于预测数据集
-|-- df_for_train.csv # 整理好的用于训练的数据集
-|-- main.py # 主函数
-|-- model.py  # 构建多模态模型的代码
-|-- prediction.py  # 用于预测的代码
-|-- requirements.txt # 创建好云服务器后需要的依赖
-|-- test_with_labels.txt # 本次实验的提交答案
-|-- train.py # 用于训练的模型的代码
+├─data # 图片和文本数据
+│  train.txt # 训练数据标签
+│  test_without_label.txt # 测试集文件
+│  requirements.txt # 依赖
+│  README.md # README
+│  main.py # 脚本文件
+│  model.py # 模型
+│  predict.py # 预测
+│  read_data.py # 读入数据
+│  train.py # 训练
+│  预测结果.txt # 预测结果       
+├─bert-based-uncased # bert模型
+├─resnet-50 # re's'm
 ```
 
 ## 训练模型
