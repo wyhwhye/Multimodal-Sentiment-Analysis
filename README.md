@@ -21,8 +21,6 @@ pip install -r requirments.txt
 
 ## 文件结构
 
-由于不能上传超过25M的文件，所以这里的bert，bert_tokenizer, resnet-50， bertSelf.pt没法上传，但是融合模型会用到这些文件，所以所有的文件会通过邮件发送，发送的格式与此处的文件结构相同。虽然bert和resnet预训练模型可以通过代码直接下载，但我在实验中发现经常会因为网络原因下载失败，并且下载一个bert模型需要一定的时间，所以为了保险起见，选择通过邮件发送模型。最后要麻烦助教在检查的时候将这些数据上传到自己的设备或服务器中～
-
 ```python
 ├─data # 图片和文本数据
 │  train.txt # 训练数据标签
@@ -36,85 +34,32 @@ pip install -r requirments.txt
 │  train.py # 训练
 │  预测结果.txt # 预测结果       
 ├─bert-based-uncased # bert模型
-├─resnet-50 # re's'm
+├─resnet-50 # resnet模型
 ```
 
-## 训练模型
+## 运行代码
 
-### 查看可设置的参数
+1. **训练模型**
 
-```python
-python ./main.py -h
-```
+    使用下面的命令来运行脚本，参数可自行调整（所给为默认参数）。
 
-```python
---model MODEL         #选择使用的模型
---lr LR               #设置学习率
---weight_decay WEIGHT_DECAY
-                        #设置权重衰减
---epochs EPOCHS       #设置训练轮数
---batch_size BATCH_SIZE
-                        #批量大小
---warmup WARMUP       #预热学习率步数
-```
+    ```sh
+    python main.py --learning_rate 0.001 --epochs 10 --weight_decay 0.01 --batch_size 64
+    ```
 
-### 训练模型
+    参数说明：
 
-首先进入文件夹Multimodal-Sentiment-Analysis
+    *   `--learning_rate`：学习率，用于优化器。
+    *   `--epochs`：训练的总周期数。
+    *   `--weight_decay`：权重衰减，用于优化器。
+    *   `--batch_size`：训练和验证时的批处理大小。
 
-```shell
-cd Multimodal-Sentiment-Analysis
-```
 
-#### 多模态融合模型
+2. **预测结果**
 
-一共有4个模型分别是**Concatenation, Additive Attention, Multi-Layer Fusion, CL-Multi-Layer Fusion**,具体可以见实验报告。\
-Multi-Layer Fusion
-
-```shell
-python ./main.py --model mlf
-```
-
-Concatenation
-
-```shell
-python ./main.py --model concat
-```
-
-Additive Attention
-
-```shell
-python ./main.py --model additive
-```
-
-CL-Multi-Layer Fusion
-
-```shell
-python ./main.py --model cl
-```
-
-#### 消融模型
-
-消融是对于Multi-Layer Fusion而言的
-text—only
-
-```shell
-python ./main.py --model text_only
-```
-
-image—only
-
-```shell
-python ./main.py --model image_only
-```
-
-### 预测
-
-利用之前训练好的模型预测(bertSelf.pt)
-
-```shell
-python ./main.py --model test
-```
+    ```shell
+    python predict.py
+    ```
 
 ## 参考
 
