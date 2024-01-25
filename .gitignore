@@ -2,6 +2,7 @@
 __pycache__/
 t5-small/
 Bert/
+resnet-50/
 *.gitattributes
 *.coverage
 *.log
