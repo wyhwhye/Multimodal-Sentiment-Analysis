@@ -1,8 +1,7 @@
 **/.idea/
 __pycache__/
 t5-small/
-Bert/
-bert-based-uncased/
+bert-base-uncased/
 resnet-50/
 *.gitattributes
 *.coverage
