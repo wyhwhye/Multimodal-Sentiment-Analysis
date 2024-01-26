@@ -23,20 +23,20 @@
 
 ## SetUp
 
-- torch==1.13.1
+- torch==1.11
 - numpy==1.21.6
-- transformers==4.30.2
+- transformers==4.36.2
 - matplotlib==3.5.3
 - tqdm==4.66.1
-- scikit-learn==1.0.2
+- scikit-learn==1.3.2
 - pandas==1.3.5
-- pillow==9.5.0
+- pillow==9.1.1
 
 
 执行以下代码安装：
 
 ```shell
-pip install -r requirments.txt
+pip install -r requirements.txt
 ```
 
 
@@ -47,17 +47,16 @@ pip install -r requirments.txt
     使用下面的命令来运行脚本，参数可自行调整（所给为默认参数）。
 
     ```sh
-    python main.py --model Attention --learning_rate 0.00001 --epochs 10 --weight_decay 0.01 --batch_size 32 --text_only False --image_only False
+    python main.py --model Attention --learning_rate 1e-5 --epochs 10 --weight_decay 0.01 --text_only False --image_only False
     ```
 
     参数说明：
 
     
-    *   `--model`：模型名称。
+    *   `--model`：模型名称，可选三个：Add，Concat，Attention。
     *   `--learning_rate`：学习率，用于优化器。
     *   `--epochs`：训练的总周期数。
     *   `--weight_decay`：权重衰减，用于优化器。
-    *   `--batch_size`：训练和验证时的批处理大小。
     *   `--text_only`：只使用文本做消融实验。
     *   `--image_only`：只使用图像做消融实验。
 
@@ -77,8 +76,6 @@ pip install -r requirments.txt
 [3] Vaswani, Ashish, et al. "Attention is all you need." *Advances in neural information processing systems* 30 (2017).
 
 [4] Quoc-Tuan Truong, Hady W. Lauw. VistaNet: Visual Aspect Attention Network for Multimodal Sentiment Analysis
-
-
 
 [liyunfan1223/multimodal-sentiment-analysis: 该仓库存放了多模态情感分析实验的配套代码。 (github.com)](https://github.com/liyunfan1223/multimodal-sentiment-analysis)
 
