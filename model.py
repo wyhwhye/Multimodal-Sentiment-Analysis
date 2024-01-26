@@ -126,7 +126,7 @@ class Attention(nn.Module):
             # print('features.shape', features.shape)
 
             # attention
-            attention_output, _ = self.attention(Q=features, K=features, V=features)
+            attention_output, _ = self.attention(features, features, features)
             attention_output = attention_output.squeeze(0)  # 删除多余维度
 
             logits = self.classifier(attention_output)
