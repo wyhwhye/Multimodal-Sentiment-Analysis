@@ -4,6 +4,7 @@ from train import train
 import argparse
 import torch
 import numpy as np
+import os
 
 parser = argparse.ArgumentParser(description="Seq2Seq Training Script")
 
@@ -13,7 +14,7 @@ parser.add_argument("--epochs", type=int, default=2, help="Number of training ep
 parser.add_argument("--learning_rate", type=float, default=1e-5, help="Learning rate for the optimizer")
 parser.add_argument("--weight_decay", type=float, default=0.01, help="Weight decay for the optimizer")
 parser.add_argument('--text_only', type=bool, default=False, help='only use text?')
-parser.add_argument('--image_only', type=bool, default=False, help='only use image?'
+parser.add_argument('--image_only', type=bool, default=False, help='only use image?')
 
 args = parser.parse_args()
 
@@ -46,4 +47,9 @@ train(
     text_only=args.text_only,
     image_only=args.image_only
 )
+
+# 文件夹路径
+folder_path = './models'
+if not os.path.exists(folder_path):
+    os.makedirs(folder_path)
 torch.save(model, './models/myModel.pth')
