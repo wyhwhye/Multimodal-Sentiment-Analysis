@@ -6,3 +6,4 @@ resnet-50/
 *.gitattributes
 *.coverage
 *.log
+*.zip
