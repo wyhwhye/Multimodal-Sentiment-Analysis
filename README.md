@@ -5,7 +5,6 @@
 ## 文件结构
 
 ```python
-├─data # 图片和文本数据
 │  train.txt # 训练数据标签
 │  test_without_label.txt # 测试集文件
 │  requirements.txt # 依赖
@@ -15,7 +14,8 @@
 │  predict.py # 预测
 │  read_data.py # 读入数据
 │  train.py # 训练
-│  预测结果.txt # 预测结果       
+│  预测结果.txt # 预测结果  
+├─data # 图片和文本数据
 ├─bert-based-uncased # bert模型
 ├─resnet-50 # resnet模型
 ```
@@ -33,7 +33,7 @@
 - pillow==9.1.1
 
 
-执行以下代码安装：
+执行以下代码安装依赖：
 
 ```shell
 pip install -r requirements.txt
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 1. **训练模型**
 
-    使用下面的命令来运行脚本，参数可自行调整（所给为默认参数）。
+    使用下面的命令来运行脚本训练模型，参数可自行调整（所给为默认参数）。
 
     ```sh
     python main.py --model Attention --learning_rate 1e-5 --epochs 10 --weight_decay 0.01 --text_only False --image_only False
@@ -66,6 +66,17 @@ pip install -r requirements.txt
     ```shell
     python predict.py
     ```
+
+
+## 实验结果
+
+|  模型    |  text_and_image    |   text_only    |   image_only    |
+| ---- | ---- | ---- | ---- |
+|   Add   |  73.67    | 73.08%     |  61.25%    |
+|  Concat    |    73.75%  |  71.58%    |    58.5%  |
+|  Attention    |   73.8%   |   72.08%   |   56.5%   |
+
+
 
 ## 参考
 
